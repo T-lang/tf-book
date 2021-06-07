@@ -30,7 +30,7 @@ install_virtualenv_flask(){
     echo 'Enter your project name'
     read projectname
     ls
-    cd ~/$projectname
+    cd ~/"$projectname"
     ls
     source env/bin/activate
 
@@ -48,18 +48,19 @@ setupDatabase(){
     echo 'Setting up Database Connection.....'
     echo 'Enter your username'
     read username
-    echo 'Enter the password for "$username"'
+    echo 'Enter the password for $username'
     read pass
     echo 'Enter your database ip address'
     read ip
     echo 'Enter your database name'
     read db
+    echo "DATABASE_URL="postgresql://$username:$pass@$ip:5432/$db""
     export APP_SETTINGS="config.DevelopmentConfig"
     export DATABASE_URL="postgresql://$username:$pass@$ip:5432/$db"
 }
 
 startApp(){
-   python3 manage.py runserver 0.0.0.0
+   python3 manage.py runserver
 }
 
 main(){
