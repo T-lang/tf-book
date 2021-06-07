@@ -17,8 +17,8 @@ install_python_pip(){
 install_git(){
     echo 'Installing git....'
     sudo apt install git
-    echo 'Enter your Github repo url Example https://github.com/user/project'
-    read giturl
+    #echo 'Enter your Github repo url Example https://github.com/user/project'
+    #read giturl
     echo 'Cloning git repo....'
     git clone $giturl
 }
