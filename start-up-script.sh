@@ -19,8 +19,8 @@ install_git(){
     sudo apt install git
     #echo 'Enter your Github repo url Example https://github.com/user/project'
     #read giturl
-    echo 'Cloning git repo....'
-    git clone $giturl
+    #echo 'Cloning git repo....'
+    #git clone $giturl
 }
 
 install_virtualenv_flask(){
