@@ -21,13 +21,13 @@ install_git(){
     read giturl
     echo 'Cloning git repo....'
     git clone $giturl
-}
-
-install_virtualenv_flask(){
     echo 'Enter your project name'
     read projectname
     ls
     cd ~/"$projectname"
+}
+
+install_virtualenv_flask(){
     echo '############################### Starting install_virtualenv_flask ###############################'
     echo 'Setting up flask and virtual enviroment....'
     python3 -m venv env
@@ -40,6 +40,7 @@ install_virtualenv_flask(){
     pip3 install "Flask==1.1.2"
     pip3 install "Flask-migrate==2.7.0"
     pip3 install flask-script
+    sudo apt-get install gunicorn3
 }
 
 setupDatabase(){
@@ -59,7 +60,7 @@ setupDatabase(){
 }
 
 startApp(){
-    gunicorn --bind 0.0.0.0:8080 manage:app --daemon
+    gunicorn3 --bind 0.0.0.0:8080 manage:app --daemon
     ##python3 manage.py runserver
 }
 
