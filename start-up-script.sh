@@ -62,7 +62,7 @@ setupDatabase(){
 
 startApp(){
     gunicorn3 --bind 0.0.0.0:8080 manage:app --daemon
-    #tes##
+    #tes####
     ##python3 manage.py runserver
 }
 
