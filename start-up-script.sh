@@ -41,6 +41,7 @@ install_virtualenv_flask(){
     pip3 install "Flask-migrate==2.7.0"
     pip3 install flask-script
     sudo apt-get install gunicorn3
+    
 }
 
 setupDatabase(){
