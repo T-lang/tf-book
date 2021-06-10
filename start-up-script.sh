@@ -17,23 +17,22 @@ install_python_pip(){
 install_git(){
     echo 'Installing git....'
     sudo apt install git
-    #echo 'Enter your Github repo url Example https://github.com/user/project'
-    #read giturl
-    #echo 'Cloning git repo....'
-    #git clone $giturl
+    echo 'Enter your Github repo url Example https://github.com/user/project'
+    read giturl
+    echo 'Cloning git repo....'
+    git clone $giturl
 }
 
 install_virtualenv_flask(){
-    echo '############################### Starting install_virtualenv_flask ###############################'
-    echo 'Setting up flask and virtual enviroment....'
-    python3 -m venv env
     echo 'Enter your project name'
     read projectname
     ls
     cd ~/"$projectname"
+    echo '############################### Starting install_virtualenv_flask ###############################'
+    echo 'Setting up flask and virtual enviroment....'
+    python3 -m venv env
     ls
     source env/bin/activate
-
     echo 'Installing items in requirements.txt file....'
     set +e
     pip3 install -r requirements.txt
@@ -60,12 +59,13 @@ setupDatabase(){
 }
 
 startApp(){
-   python3 manage.py runserver
+    gunicorn --bind 0.0.0.0:8080 manage:app --daemon
+    ##python3 manage.py runserver
 }
 
 main(){
     update
-    install_git
+    ##install_git
     install_python_pip
     install_virtualenv_flask
     setupDatabase

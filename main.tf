@@ -11,7 +11,7 @@ resource "google_compute_network" "vpc_network" {
 
 // Terraform plugin for creating random ids
 resource "random_id" "instance_id" {
- byte_length = 8
+ byte_length = 3
 }
 
 // A single Compute Engine instance
