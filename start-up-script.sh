@@ -65,7 +65,7 @@ startApp(){
 
 main(){
     update
-    ###install_git
+    #install_git
     install_python_pip
     install_virtualenv_flask
     setupDatabase
